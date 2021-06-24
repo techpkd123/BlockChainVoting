@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hello World DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <style>
+    /* Center the loader */
+
+    #loaderImg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Add animation to "page content" */
+
+    .animate-bottom {
+      position: relative;
+      -webkit-animation-name: animatebottom;
+      -webkit-animation-duration: 1s;
+      animation-name: animatebottom;
+      animation-duration: 1s
+    }
+
+    @-webkit-keyframes animatebottom {
+      from {
+        bottom: -100px;
+        opacity: 0
+      }
+
+      to {
+        bottom: 0px;
+        opacity: 1
+      }
+    }
+
+    @keyframes animatebottom {
+      from {
+        bottom: -100px;
+        opacity: 0
+      }
+
+      to {
+        bottom: 0;
+        opacity: 1
+      }
+    }
+
+    #loader {
+      position: fixed;
+      /* Sit on top of the page content */
+      width: 100%;
+      /* Full width (cover the whole page) */
+      height: 100%;
+      /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Black background with opacity */
+      z-index: 500000;
+      /* Specify a stack order in case you're using a different order for other elements */
+      opacity: 5;
+    }
+
+    .overlayDisplay {
+      display: block;
+    }
+
+    .overlayHide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="container-fluid" style="padding:20px 50px;">
+  <h1><b>Blockchain Voting App</b></h1>
+  <hr />
+  <div id="loader" class="overlayHide">
+    <div id="loaderImg"></div>
+  </div>
+  <div class="col-sm-6" style=" padding:5px; margin:10px;">
+    <h3>
+      <b> Choose your party </b>
+    </h3>
+    <hr />
+    <div class="cl-sm-12" style="padding:10px;">
+      <div class="cl-sm-12">
+        <input type="radio" id="bjp" name="party" value="BJP">
+        <label for="bjp">BJP</label>
+      </div>
+      <div class="cl-sm-12">
+        <input type="radio" id="cong" name="party" value="CONG">
+        <label for="cong">CONG</label>
+      </div>
+      <div class="cl-sm-12">
+        <input type="radio" id="aap" name="party" value="AAP">
+        <label for="aap">AAP</label>
+      </div>
+      <div class="cl-sm-12">
+        <input type="radio" id="bsp" name="party" value="BSP">
+        <label for="bsp">BSP</label>
+      </div>
+      <div class="cl-sm-12">
+        <input type="radio" id="sp" name="party" value="SP">
+        <label for="sp">SP</label>
+      </div>
+      <div class="cl-sm-12">
+        <input type="radio" id="others" name="party" value="OTHERS">
+        <label for="others">OTHERS</label>
+      </div>
+      <br />
+      <div class="cl-sm-12">
+        <a href="#" onclick="voteForCandidate()" class="col-sm-3 btn btn-primary">Vote</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-sm-12 table-responsive">
+    <div class="col-sm-6">
+      <h3>
+        <b> Result </b>
+      </h3>
+      <hr />
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Parties</th>
+            <th>Votes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BJP</td>
+            <td id="party-1"></td>
+          </tr>
+          <tr>
+            <td>CONG</td>
+            <td id="party-2"></td>
+          </tr>
+          <tr>
+            <td>AAP</td>
+            <td id="party-3"></td>
+          </tr>
+          <tr>
+            <td>BSP</td>
+            <td id="party-4"></td>
+          </tr>
+          <tr>
+            <td>SP</td>
+            <td id="party-5"></td>
+          </tr>
+          <tr>
+            <td>OTHERS</td>
+            <td id="party-6"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+<!-- <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script> -->
+<script src="./web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./index.js"></script>
+
+</html>
